@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import socket
+import subprocess
+import time
+import pyfiglet
+import sys
+
+subprocess.call
+
+Port_Scanner_Banner = pyfiglet.figleyt_format("PORT SCANNER")
+print(Port_Scanner_Banner)
+
+time.sleep(1)
+
+remoteSErver = input("Enter the IP: ")
+
+target = socket.gethostbyname(remoteServer) 
+
+print("_" * 50)
+
+print("Scanning the following Host: " + target)
+
+print("_" * 50)
+
+try:
+     for port in range(1, 4000):
+              s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+              result = s.connect_ex((target, port))
+             if result == 0:
+             print("Port {}: is open" .format(port))
+             s.close()
+
+except KeyboardInterrupt:
+       print("\n the scan was cancelled")
+      sys.exit()
+
+except socket.gaierror:
+print("\n Hostname Could NOt Be Resolved")
+       sys.exit ()
+
+except socket.error
+      print("\n No response")
+     sys.exit()
